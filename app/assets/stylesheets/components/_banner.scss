@@ -1,0 +1,11 @@
+.banner {
+  background-image: asset-url("moviesbg.jpeg");
+  background-size: cover;
+  height: 80vh;
+  border-radius: 20px;
+
+  h1 {
+    font-size: 80px;
+    font-weight: 700;
+  }
+}
