@@ -1,0 +1,6 @@
+<%= @list.name %>
+<ul>
+  <% @list.movies.each do |movie| %>
+    <li><%= movie.title %></li>
+  <% end %>
+</ul>
