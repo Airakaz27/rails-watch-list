@@ -1,14 +1,19 @@
-
 <div class="container">
-  <div class="banner d-flex align-items-end">
-    <h1 class="text-light m-5">My movie lists</h1>
+  <div class="banner mb-5">
+    <h1 class="banner-title">My Movie Lists</h1>
   </div>
 
-  <div class="cards mt-5">
-    <% @lists.each do |list| %>
-      <%= link_to "#{list_path(list)}", class: "card-category", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://fr.web.img6.acsta.net/pictures/21/08/10/12/20/4633954.jpg)" do%>
-        <h3><%= list.name %></h3>
+  <div class="position-relative d-flex gap-5">
+    <div class="position-sticky form-new-list">
+      <h2>New List</h2>
+      <%= render 'simple_form', list: @list %>
+    </div>
+    <div class="cards flex-grow-1">
+      <% @lists.each do |list| %>
+        <%= link_to list_path(list), class: "card-category", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{list.image_url})" do %>
+          <h3><%= list.name %></h3>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

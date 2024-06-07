@@ -11,6 +11,7 @@ require 'open-uri'
 
 puts 'Cleaning database...'
 Movie.destroy_all
+List.destroy_all
 
 url = 'https://tmdb.lewagon.com/movie/popular'
 movies_serialized = URI.open(url).read
@@ -30,5 +31,8 @@ movies['results'].each do |result|
 end
 puts 'Finished!'
 
-List.create!({ name: 'Action' })
-List.create!({ name: 'Comedy' })
+puts 'Create Action list'
+List.create!({ name: 'Action', image_url: "https://m.media-amazon.com/images/I/71JXK7v7pvL._AC_UF894,1000_QL80_.jpg" })
+puts 'Create Comedy list'
+# Create Comedy list
+List.create!({ name: 'Comedy', image_url: "https://fr.web.img2.acsta.net/pictures/21/06/28/17/13/1668165.jpg" })

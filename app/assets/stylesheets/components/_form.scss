@@ -1,0 +1,25 @@
+.form-new-list {
+  position: sticky;
+  top:50px;
+  width: 33%;
+  height: 100%;
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+
+  h2 {
+    font-size: $subtitle-size;
+  }
+}
+
+.form-new-bm {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+
+  h2 {
+    font-size: $subtitle-size;
+  }
+}
