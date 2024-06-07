@@ -16,7 +16,7 @@
 
       <% @list.movies.each do |movie| %>
         <div class="card-product">
-          <div class="poster">
+          <div class="poster position-relative">
             <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
             <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
               <i class="fs-2 fa-solid fa-square-xmark position-absolute" style="top: 12px; left: 12px; color:#F6C800;"></i>
@@ -24,10 +24,17 @@
             <%= image_tag movie.poster_url, alt: ""%>
           </div>
           <div class="card-product-infos">
-            <h2><%= movie.title %></h2>
-            <p><%= movie.overview.truncate(180, separator: /\s/) %></p>
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.overview.truncate(180, separator: /\s/) %></p>
+            </div>
+            <div id="rating" class="position-relative">
+              <span class="fw-bold fs-2"><%= movie.rating %></span>
+              <i class="fa-solid fa-star star"></i>
+            </div>
+            <hr>
             <div class="d-flex gap-2">
-              <i class="fa-solid fa-quote-right"></i>
+              <i class="fa-solid fa-quote-right fa-flip-horizontal"></i></i>
               <span><%= bookmark.comment %></span>
             </div>
           </div>

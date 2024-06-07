@@ -1,37 +1,57 @@
 .card-product {
   overflow: hidden;
-  height: 220px;
+  height: 340px;
   display: flex;
   align-items: start;
-  margin-bottom: 50px;
 }
 
 .poster {
-  position: relative;
-  width: 60%;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
-  }
+}
 
 .poster img {
+  height: 100%;
   width: 100%;
-  height: auto;
   object-fit: cover;
 }
 
 .card-product h2 {
-  font-size: 40px;
+  font-size: 38px;
+  font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.6;
   opacity: .7;
-  margin-bottom: 4px;
-  margin-top: 4px;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
 
 .card-product .card-product-infos {
-  padding-left: 30px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  gap: 10px;
+}
+
+#rating {
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  border-radius: 16px;
+  padding: 10px;
+  width: 20%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star {
+  color: $yellow;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
