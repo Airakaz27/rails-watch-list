@@ -1,0 +1,21 @@
+@mixin max($breakpoint) {
+  @media (max-width: map-get($grid-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin min($breakpoint) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin common-form-styles {
+  border-radius: 20px;
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  padding: 3rem;
+
+  h2 {
+    font-size: 4rem;
+  }
+}

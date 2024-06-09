@@ -1,16 +1,19 @@
 <div class="container">
-  <div class="banner mb-5">
-    <h1 class="banner-title">My Movie Lists</h1>
+  <div class="hero mb-5 d-flex justify-content-start align-items-end"
+      style="background-image: url('<%= cl_image_path("lp0axxq7owa2xwn63a1f") %>');">
+    <h1 class="hero__headline">My Movie <span class="hero__headline--emphasize">Lists</span></h1>
   </div>
 
-  <div class="position-relative d-flex gap-5">
-    <div class="position-sticky form-new-list">
+  <div class="d-flex flex-column flex-lg-row gap-5">
+    <div id="new" class="list-form">
       <h2>New List</h2>
       <%= render 'simple_form', list: @list %>
     </div>
-    <div class="cards flex-grow-1">
+    <div class="grid__lists-cards flex-grow-1">
       <% @lists.each do |list| %>
-        <%= link_to list_path(list), class: "card-category", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{list.image_url})" do %>
+        <%= link_to list_path(list),
+                    class: "list-card",
+                    style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{cl_image_path(list.photo.key)})" do %>
           <h3><%= list.name %></h3>
         <% end %>
       <% end %>

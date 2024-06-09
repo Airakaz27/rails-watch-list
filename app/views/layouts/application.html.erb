@@ -11,14 +11,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <div>
       <div class="container">
-        <div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-3">
-          <div class="container-fluid">
+        <div class="navbar navbar-expand-sm navbar-light navbar-watchlist py-3">
+          <div class="container-fluid px-0">
             <%= link_to lists_path, class: "navbar-brand" do %>
               <%= image_tag "logo.png" %>
             <% end %>
@@ -30,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item active">
-                  <%= link_to "New list", '#form-new', class: "btn btn-flat" %>
+                  <%= link_to "New list", '#new', class: "btn btn-flat" %>
                 </li>
               </ul>
             </div>

@@ -1,11 +1,13 @@
-.navbar-lewagon {
+.navbar-watchlist {
   justify-content: space-between;
-}
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-collapse {
+    flex-grow: 0;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 80px;
+  .navbar-brand {
+    img {
+      width: 80px;
+    }
+  }
 }

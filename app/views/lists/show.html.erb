@@ -1,45 +1,45 @@
 <div class="container">
 
-  <div class="position-relative grid-list">
-    <div class="banner-list mb-5" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= @list.image_url %>)">
-      <h1 class="banner-title"><%= @list.name %></h1>
+  <div class="position-relative d-flex flex-column flex-lg-row gap-5">
+    <div class="hero hero--sticky d-flex justify-content-start align-items-end mb-5" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= cl_image_path(@list.photo.key) %>)">
+      <h1 class="hero__headline"><%= @list.name %></h1>
     </div>
-    <div id="form-new" class="flex-grow-1">
-      <div class="form-new-bm mb-5">
-        <h2>Add a movie</h2>
-        <%= simple_form_for [@list, @bookmark] do |f| %>
+
+  <div>
+    <div class="bookmark-form mb-5">
+      <h2>Add a movie</h2>
+      <%= simple_form_for [@list, @bookmark], html: { class: "d-grid gap-3" } do |f| %>
         <%= f.input :comment %>
         <%= f.association :movie %>
-        <%= f.submit "Add", class: "btn btn-flat"%>
-        <% end %>
-      </div>
-
-      <% @list.movies.each do |movie| %>
-        <div class="card-product">
-          <div class="poster position-relative">
-            <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-            <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-              <i class="fs-2 fa-solid fa-square-xmark position-absolute" style="top: 12px; left: 12px; color:#F6C800;"></i>
-            <% end %>
-            <%= image_tag movie.poster_url, alt: ""%>
-          </div>
-          <div class="card-product-infos">
-            <div>
-              <h2><%= movie.title %></h2>
-              <p><%= movie.overview.truncate(180, separator: /\s/) %></p>
-            </div>
-            <div id="rating" class="position-relative">
-              <span class="fw-bold fs-2"><%= movie.rating %></span>
-              <i class="fa-solid fa-star star"></i>
-            </div>
-            <hr>
-            <div class="d-flex gap-2">
-              <i class="fa-solid fa-quote-right fa-flip-horizontal"></i></i>
-              <span><%= bookmark.comment %></span>
-            </div>
-          </div>
-        </div>
+        <%= f.submit "Submit", class: "btn btn-flat" %>
       <% end %>
     </div>
+
+    <% @list.movies.each do |movie| %>
+      <div class="movie-card">
+        <div class="poster position-relative">
+          <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+          <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'delete-button' do %>
+            <i class="fs-2 fa-solid fa-square-xmark position-absolute" style="top: 12px; left: 12px; color:#F6C800;"></i>
+          <% end %>
+          <%= image_tag movie.poster_url, alt: "" %>
+        </div>
+        <div class="movie-details">
+          <div class=" rating position-relative mb-3">
+            <span class="fw-bold fs-2"><%= movie.rating %></span>
+            <i class="fa-solid fa-star star fs-5"></i>
+          </div>
+          <div>
+            <h3><%= movie.title %></h3>
+            <p><%= movie.overview.truncate(180, separator: /\s/) %></p>
+          </div>
+          <div class="d-flex gap-2">
+            <i class="fa-solid fa-quote-right fa-flip-horizontal"></i>
+            <span><%= bookmark.comment %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
   </div>
 </div>

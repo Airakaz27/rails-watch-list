@@ -1,0 +1,13 @@
+body {
+  font-family: $body-font;
+  font-size: clamp(0.875rem, calc(0.8rem + 0.375vw), 1.25rem);
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  font-family: $headers-font;
+}
+
+p {
+  line-height: 1.7;
+}
